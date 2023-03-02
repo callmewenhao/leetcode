@@ -4,14 +4,25 @@
 @File    : T1.py
 @Author  : wenhao
 @Time    : 2023/2/18 22:19
-@LC      : 6359
+@LC      : 2566
 """
-
-from typing import List
-from collections import Counter
-from collections import deque
-
 class Solution:
+    # 灵神 时间复杂度 log num
+    def minMaxDifference(self, num: int) -> int:
+        mx = mi = num
+        s = str(num)
+        for c in s:
+            if c != '9':  # 替换第一个不为 9 的数
+                mx = int(s.replace(c, '9'))
+                break
+        for c in s:
+            if c != '0':  # 替换第一个不为 0 的数
+                mi = int(s.replace(c, '0'))
+                break
+        return mx - mi
+
+
+    # 比赛时的写法
     def minMaxDifference(self, num: int) -> int:
         s = str(num)
 
