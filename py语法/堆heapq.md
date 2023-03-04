@@ -35,6 +35,41 @@ heapq --- 堆队列算法。这个模块提供了堆队列算法的实现，也�
 
 [官方文档](https://docs.python.org/zh-cn/3/library/heapq.html)
 
+代码示例
 
+```python
+# 优化 使用大小堆 优化时间复杂度为 log n
+class MedianFinder:
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.minHeap = []  # 小根堆 存放较大元素
+        heapq.heapify(self.minHeap)  # 堆化
+        self.maxHeap = []  # 大根堆 存放较大元素
+        heapq.heapify(self.maxHeap)  # 堆化
 
+    def addNum(self, num: int) -> None:
+        # 两个堆长度相同时
+        # 应该把一个元素 放到 minHeap 中
+        # 这个元素应是 maxHeap + num 中的最大值
+        if len(self.minHeap) == len(self.maxHeap):
+            heapq.heappush(self.maxHeap, -num)
+            mx = -1. * heapq.heappop(self.maxHeap)
+            heapq.heappush(self.minHeap, mx)
+        else:
+            # 长度不同时
+            # 应该把一个元素 放到 maxHeap 中
+            # 这个元素应是 minHeap + num 中的最小值
+            heapq.heappush(self.minHeap, num)
+            mn = heapq.heappop(self.minHeap)
+            heapq.heappush(self.maxHeap, -mn)
+
+    def findMedian(self) -> float:
+        # 返回中位数
+        if len(self.minHeap) == len(self.maxHeap):
+            return (self.minHeap[0] - self.maxHeap[0]) / 2
+        return self.minHeap[0]
+
+```
 

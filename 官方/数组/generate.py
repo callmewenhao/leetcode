@@ -10,7 +10,8 @@ from typing import List
 
 
 class Solution:
-    def generate(self, n: int) -> List[List[int]]:
+    # 二维数组 递推
+    def generate1(self, n: int) -> List[List[int]]:
         f = [[0] * (i + 1) for i in range(n)]
         for i, row in enumerate(f):
             for j in range(len(row)):
