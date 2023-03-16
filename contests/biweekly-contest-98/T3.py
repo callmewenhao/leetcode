@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-@File    : T3.py
+@File    : beautifulSubarrays.py
 @Author  : wenhao
 @Time    : 2023/2/18 22:20
 @LC      : 2568
