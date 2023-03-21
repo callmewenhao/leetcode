@@ -13,7 +13,7 @@ from collections import Counter
 class Solution:
     # 灵神 线性做法
     # 充分利用原数组递增顺序排列的性质
-    # 归并排序 双指针
+    # 分治 双指针
     def mergeArrays(self, a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
         ans = []
         i, n = 0, len(a)
