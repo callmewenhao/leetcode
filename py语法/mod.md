@@ -1,5 +1,16 @@
 # MOD
 
+一般地 涉及到取模的题目 通常会用到如下等式
+
+`
+(a + b) mod m = ((a mod m) + (b mod m)) mod m
+`
+
+`
+(a * b) mod m = ((a mod m) * (b mod m)) mod m
+`
+
+
 > Python 取模运算会保证结果非负。
 
 如果 x 和 y 均为非负数，

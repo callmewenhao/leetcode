@@ -3,23 +3,20 @@
 """
 @File    : lengthOfLongestSubstring.py
 @Author  : wenhao
-@Time    : 2023/1/29 21:22
+@Time    : 2023/4/12 21:06
+@LC      : 3
 """
-"""
-滑窗
-"""
-from collections import Counter
-
-
 class Solution:
+
+
+    # 同向双指针 滑动窗口
     def lengthOfLongestSubstring(self, s: str) -> int:
-        ans = l = 0
-        c = Counter()
+        cnt = [0] * 128  # hash biao
+        l = ans = 0
         for r, ch in enumerate(s):
-            c[ch] += 1
-            while c[ch] > 1:
-                c[s[l]] -= 1
+            cnt[ord(ch)] += 1
+            while cnt[ord(ch)] > 1:
+                cnt[ord(s[l])] -= 1
                 l += 1
             ans = max(ans, r - l + 1)
-
         return ans

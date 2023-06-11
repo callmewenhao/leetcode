@@ -19,13 +19,13 @@ insort_left(self.buf, num)
 
 # bisect_left 注意 返回的是下标
 bisect_left(a, x, lo=0, hi=len(a), *, key=None)
-# The returned insertion point i partitions the array a into two halves 
-# so that all(val < x for val in a[lo : i]) for the left side 
-# and all(val >= x for val in a[i : hi]) for the right side.
-# key specifies a key function of one argument 
-# that is used to extract a comparison key from each element in the array. 
-# To support searching complex records, 
-# the key function is not applied to the x value.
+
+# 示例
+from bisect import bisect_left
+nums = [2, 3, 5, 7, 11, 13]
+i = bisect_left(nums, 1)  # output 0
+j = bisect_left(nums, 7)  # output 3
+k = bisect_left(nums, 100)  # output 6
 ```
 
 

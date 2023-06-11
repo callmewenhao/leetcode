@@ -25,7 +25,7 @@ class Solution:
 
 
 
-    # 暴力枚举 + 二分查找，时间复杂度：O(n) * O(logn)
+    # 暴力枚举 + 二分、二分答案，时间复杂度：O(n) * O(logn)
     def findContinuousSequence1(self, target: int) -> List[List[int]]:
         ans = []
         for i in range(1, target // 2 + 1):
